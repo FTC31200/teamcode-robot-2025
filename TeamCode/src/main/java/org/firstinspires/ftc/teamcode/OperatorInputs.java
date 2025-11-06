@@ -22,7 +22,7 @@ public class OperatorInputs {
 
     public void update() {
         drive = -gamepad.left_stick_y * 0.72;
-        turn = gamepad.right_stick_x * 0.85;
+        turn = gamepad.right_stick_x;
 
         if (gamepad.left_trigger > 0.05 && !prevLeftTrigger) intakeToggle = !intakeToggle;
         if (gamepad.right_trigger > 0.05 && !prevRightTrigger) shootActive = !shootActive;
