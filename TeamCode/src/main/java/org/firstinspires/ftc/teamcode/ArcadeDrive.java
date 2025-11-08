@@ -44,6 +44,8 @@ public class ArcadeDrive extends OpMode {
         shooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
+
+        pid.setTolerance(170.0);
     }
 
     // spinning the CRServo
