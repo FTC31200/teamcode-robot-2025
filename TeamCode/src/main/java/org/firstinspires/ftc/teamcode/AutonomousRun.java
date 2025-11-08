@@ -49,11 +49,10 @@ public class AutonomousRun extends LinearOpMode {
             shooterMotor.setPower(1.0);
             servo.setPower(1.0);
             for (int i = 0; i < 3; i++) {
-                telemetry.addLine(String.format("How many shoots: %d", i + 1));
-                telemetry.update();
+                pid.isAtTargetPoint = false;
                 shoot();
                 waitForBall();
-                sleep(1000                                                                                                                                                                                                                                                                                                                                                                                                                                                                             );
+                sleep(1000);
             }
         }
         stop();
@@ -74,7 +73,6 @@ public class AutonomousRun extends LinearOpMode {
         while (true) {
             telemetry.addData("ShooterSpeed", shooterMotor.getVelocity());
             telemetry.update();
-            pid.calculate(1800, shooterMotor.getVelocity()); // to update the ERROR, so update the isAtTargetPoint
             if (shooterMotor.getVelocity() < 1100) break;
         }
         sleep(100);
